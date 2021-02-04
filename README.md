@@ -1,5 +1,10 @@
 
-# kubernetes
+# usage on local machine with kubectl and minikube installed
+
+clone this repo and run
+kubectl apply -f webapp-deployment.yaml
+
+# steps i followed to accomplish this demo
 
 Install VirtualBox:
 sudo apt-get install -y virtualbox
@@ -26,7 +31,7 @@ minikube start --vm-driver=virtualbox
 minikube addons enable ingress
 kubectl get pods -n kube-system
 
-## webapp Deployments
+## webapp Deployments - this will be deployed with webapp-deployment.yaml
 
 apiVersion: apps/v1
 kind: Deployment
@@ -50,7 +55,7 @@ spec:
      - name: web
        image: "eazyt/nginxsidecar:v2"
 
-# create service(local access via NodePort)
+# create service(local access via NodePort) - this will be deployed with webapp-deployment.yaml
 
 apiVersion: v1
 kind: Service
@@ -66,7 +71,7 @@ spec:
      nodePort: 32000
  type: NodePort
 
-# Create an Ingress resource
+# Create an Ingress resource - this will be deployed with webapp-deployment.yaml
 
 apiVersion: networking.k8s.io/v1
 kind: Ingress
@@ -117,3 +122,6 @@ kubectl delete svc webapp-svc
 
 Stopping a Cluster Minikube
 minikube stop
+
+########################################################################################
+
