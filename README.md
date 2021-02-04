@@ -4,7 +4,7 @@
 # usage on local machine with kubectl and minikube installed
 
 clone this repo and run:
-kubectl create -f webapp-deployment.yaml
+kubectl create -f webapp-deployment.yaml --validate=false
 
 # Enable the Ingress controller
 minikube addons enable ingress
