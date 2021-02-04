@@ -4,7 +4,10 @@
 # usage on local machine with kubectl and minikube installed
 
 clone this repo and run:
-kubectl apply -f webapp-deployment.yaml
+kubectl create -f webapp-deployment.yaml
+
+# Enable the Ingress controller
+minikube addons enable ingress
 
 # assigning LoadBalancer to minikube deployment
 
