@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+ name: webapp-deployment
+ labels:
+   role: webapp
+spec:
+ replicas: 1
+ selector:
+   matchLabels:
+     role: webapp
+ template:
+   metadata:
+     labels:
+       role: webapp
+   spec:
+     containers:
+     #- name: app
+     #  image: "eazyt/my-webapp:v2"
+     - name: web
+       image: "eazyt/nginxsidecar:v2"
