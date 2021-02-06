@@ -3,11 +3,14 @@
 
 # usage on local machine with kubectl and minikube installed
 
-clone this repo and run:
-kubectl create -f webapp-deployment.yaml --validate=false
-
 # Enable the Ingress controller
 minikube addons enable ingress
+
+# Verify that the NGINX Ingress controller is running
+kubectl get pods -n kube-system
+
+clone this repo and run:
+kubectl create -f webapp-deployment.yaml --validate=false
 
 # assigning LoadBalancer to minikube deployment
 
@@ -19,7 +22,7 @@ kubectl get ingress
 
 # Add the following line to the bottom of the /etc/hosts file (IP address from kubectl get ingress)
 
-192.168.48.16 demo.homelab.local
+192.168.99.100 demo.homelab.local
 
 # Verify that the Ingress controller is directing traffic
 
